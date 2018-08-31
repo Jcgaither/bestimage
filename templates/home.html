@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BestImage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="home" class="gallery-block compact-gallery mt-header" v-cloak>
+    <div class="container">
+        <div class="heading">
+                <h2>BestImage</h2>
+        </div>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/vote">Vote</a>
+                </li>
+            </ul>
+        <div class="row no-gutters">
+            <div v-for="photo in photos" class="col-sm-12 col-md-6 col-lg-4 item zoom-on-hover">
+                <a class="lightbox" v-bind:href="photo.PhotoUrl">
+                    <img class="img-fluid image" v-bind:src="photo.PhotoUrl">
+                    <span class="description">
+                        <span class="description-body">
+                            <div v-if="photo.UserVotes > 0">
+                                <i class="fas fa-angle-double-up voted-icon"></i>
+                            </div>
+                            <div v-else>
+                       
+                                <i class="fas fa-angle-double-up"></i>
+                            </div> 
+                        </span>
+                        <span class="description-heading">${photo.AllVotes}</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+  
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="/public/js/home.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BestImage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div id="vote" class="gallery-block compact-gallery mt-header" v-cloak>
+    <div class="container">
+            <div class="heading">
+                    <h2>BestImage</h2>
+                </div>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vote">Vote</a>
+                    </li>
+                </ul>
+            <div class="row">
+                <table v-show="photos.length" class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Downvote</th>
+                        <th scope="col">Upvote</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(photo, index) in photos" :key="photo.id">
+                            <td><img class="img-fluid image vote-image" v-bind:src="photo.PhotoUrl"></td>
+                            <td><i class="fas fa-minus fa-3x vote-icon downvote" v-on:click="submitVote(photo.PhotoId, 0, index)"></i></td>
+                            <td><i class="fas fa-plus fa-3x vote-icon upvote" v-on:click="submitVote(photo.PhotoId, 1, index)"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+              
+            </div>
+        </div>
+        <div class="container">
+        <div v-if="!photos.length">
+                <h4 class="text-center mt-35">Votes submitted.</h4>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="/public/js/vote.js"></script>
+</body>
+</html>

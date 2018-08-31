@@ -1,0 +1,4 @@
+env_variables:
+  POSTGRES_CONNECTION: "user=postgres password=pw dbname=db host=/cloudsql/INSTANCE_CONNECTION_NAME"
+beta_settings:
+  cloud_sql_instances: INSTANCE_CONNECTION_NAME
